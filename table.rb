@@ -1,6 +1,8 @@
 
 class Table
   attr_accessor :header, :data
+  # should add checks
+  # so taht every row is of the same size 
 
   def initialize header 
     @header = header
@@ -26,6 +28,11 @@ class Table
       #p sdata[i]
       rpad << sdata.max{|a, b| a[i].length <=> b[i].length}[i].length
     end
+
+    tsign  = {:ut => '┴', :dt => '┬', :rt => '├', :lt => '┤', :cross => '┼'}
+    corner = {:tr => '┌', :tl => '┐', :br => '┘', :bl => '└'}
+    # we can start printing table 
+ 
   end
 
   # is this a bad idea
@@ -54,12 +61,6 @@ def stats()
   # if they were not strings we could not check for this
   # we get the longest membe rin column, for padding porpuses
   # we want to pad up shorter strings
-  rpad_id = rows.max{|a, b| a[0].to_s.size <=> b[0].to_s.size}[0].to_s.length
-  rpad_id = [rpad_id, "id".length].max
-  rpad_act = rows.max{|a, b| a[1].size <=> b[1].size}[1].length
-  rpad_act = [rpad_act, "Activity".length].max
-  rpad_time = rows.max{|a, b| a[2].size <=> b[2].size}[2].length
-  rpad_time = [rpad_time, "Time"].max
 
   id = "id".ljust(rpad_id, " ")
   activity = "Activity".ljust(rpad_act, " ")
