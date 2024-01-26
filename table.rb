@@ -18,12 +18,14 @@ class Table
 
     # get longest item in a column
     rpad = []
-    0.upto(sdata.length()-1).each do |i|
-      p sdata[i]
-      rpad << sdata.max {|a, b| a.size <=> b.size}[i]
+    nrows = sdata[0].length
+    # the issue was, i was going for how many rows, should of gone by rows
+    # this is really confussing
+    # idk why it really works 
+    0.upto(nrows -1).each do |i|
+      #p sdata[i]
+      rpad << sdata.max{|a, b| a[i].length <=> b[i].length}[i].length
     end
-    puts "List of rpad for each column" 
-    p rpad
   end
 
   # is this a bad idea
