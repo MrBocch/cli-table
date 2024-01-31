@@ -14,7 +14,7 @@ class Table
       raise "Where is the data?"
     end
     sdata = [@header.clone]
-    sdata += self._datato_s
+    sdata += self.datato_s
     # does everything have to be turned into a string?
     # i think so 
 
@@ -32,13 +32,14 @@ class Table
     tsign  = {:ut => '┴', :dt => '┬', :rt => '├', :lt => '┤', :cross => '┼'}
     corner = {:tr => '┌', :tl => '┐', :br => '┘', :bl => '└'}
     # we can start printing table 
+    puts "printing table"
  
   end
 
   # is this a bad idea
   # if there is alot of data?
-  # make this a private function
-  def _datato_s
+  private
+  def datato_s
     stringify = []
     @data.each do |row|
       stringify << row.map {|e| e.to_s}
