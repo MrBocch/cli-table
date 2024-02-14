@@ -13,4 +13,4 @@ t.data = [(1..3).to_a,
 ]
 
 #p #t.print
-t.print
+t.printTable

@@ -8,7 +8,7 @@ class Table
     @header = header
   end
 
-  def print
+  def printTable
     # i should probably check for things 
     if @data.empty?
       raise "Where is the data?"
@@ -26,13 +26,40 @@ class Table
     # idk why it really works 
     0.upto(nrows -1).each do |i|
       #p sdata[i]
-      rpad << sdata.max{|a, b| a[i].length <=> b[i].length}[i].length
+      rpad << sdata.max{|a, b| a[i].length <=> b[i].length}[i].length() +1
     end
-
+ 
+    floor = '─'
+    wall = '│' 
     tsign  = {:ut => '┴', :dt => '┬', :rt => '├', :lt => '┤', :cross => '┼'}
     corner = {:tr => '┌', :tl => '┐', :br => '┘', :bl => '└'}
     # we can start printing table 
-    puts "printing table"
+
+    top = ""
+    idx = 0
+    sdata[0].each do |s|
+      top << "#{wall} #{s.ljust(rpad[idx])}"
+      idx += 1
+    end
+    top << wall
+    top = top.split("").map{|s| floor}.join("")
+    bot = top.clone
+
+    top[0] = corner[:tr]
+    top[-1] = corner[:tl]
+
+    bot[0] = corner[:bl]
+    bot[-1] = corner[:br]
+
+    puts top
+    sdata.each do |l|
+      (0...l.length()).each do |i|
+        print("#{wall} #{l[i].ljust(rpad[i])}")
+      end
+      print "#{wall}"
+      puts ""
+    end
+    puts bot
  
   end
 
