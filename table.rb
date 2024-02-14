@@ -33,25 +33,13 @@ class Table
     wall = '│' 
     tsign  = {:ut => '┴', :dt => '┬', :rt => '├', :lt => '┤', :cross => '┼'}
     corner = {:tr => '┌', :tl => '┐', :br => '┘', :bl => '└'}
+
+    # how do print lower and top part of table?
+    # ┌────┬──────┬───┐
+    # |data| data | x | 
+    # └────┴──────┴───┘
+
     # we can start printing table 
-
-    top = ""
-    idx = 0
-    sdata[0].each do |s|
-      top << "#{wall} #{s.ljust(rpad[idx])}"
-      idx += 1
-    end
-    top << wall
-    top = top.split("").map{|s| floor}.join("")
-    bot = top.clone
-
-    top[0] = corner[:tr]
-    top[-1] = corner[:tl]
-
-    bot[0] = corner[:bl]
-    bot[-1] = corner[:br]
-
-    puts top
     sdata.each do |l|
       (0...l.length()).each do |i|
         print("#{wall} #{l[i].ljust(rpad[i])}")
@@ -59,7 +47,6 @@ class Table
       print "#{wall}"
       puts ""
     end
-    puts bot
  
   end
 
