@@ -37,7 +37,7 @@ class Table
     # how do print lower and top part of table?
     # ┌────┬──────┬───┐
     # |data| data | x | 
-    # └────┼──────┼───┘
+    # ├────┼──────┼───┤
 
     # we can start printing table 
     sdata.each do |l|
