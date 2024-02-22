@@ -1,15 +1,13 @@
 require './table'
 # how do i make a gem?
 
-t = Table.new ["hello", "world", "idk"]
+t = Table.new ["Student", "Math", "Science", "English"]
 
-t.header = ["h1", "header2", "h3"]
-t.data = [(1..3).to_a,
-          (4..6).to_a,
-          ["himuh", "test", "loooong"],
-          ["a", "notha", "test"],
-          [1,2,400],
-          ["hello", "idk", "loooooonger"]
+t.data = [
+    ["John", 85, 90, 88],
+    ["Sarah", 78, 85, 92],
+    ["David", 91, 88, 85],
+    ["George", 99, 99, 99]
 ]
 
 #p #t.print
