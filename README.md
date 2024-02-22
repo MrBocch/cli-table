@@ -18,3 +18,5 @@ t.data = [
 
 t.printTable
 ```
+
+All rows must be of the same size. 
