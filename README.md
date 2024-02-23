@@ -2,6 +2,10 @@
 
 Present 2 dimensional arrays into a table
 
+## How to install
+
+```gem install cli-table```
+
 ## How to use
 
 ```
