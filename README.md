@@ -5,7 +5,7 @@ Present 2 dimensional arrays into a table
 ## How to use
 
 ```
-require './table'
+require 'cli-table'
 
 t = Table.new ["Student", "Math", "Science", "English"]
 
