@@ -30,7 +30,6 @@ All rows must be of the same size.
 
 ## TODO 
 
-* make into a gem
 * add configuribility
 
 ## Inspiration
