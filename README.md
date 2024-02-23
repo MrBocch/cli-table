@@ -19,6 +19,9 @@ t.data = [
 t.printTable
 ```
 
+![screenshot](screenshot.png)
+
+
 All rows must be of the same size. 
 
 ## TODO 
