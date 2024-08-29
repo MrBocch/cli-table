@@ -13,28 +13,28 @@ require 'cli-table'
 
 t = Table.new ["Student", "Math", "Science", "English"]
 
-t.data = [
+t.rows = [
     ["John", 85, 90, 88],
     ["Sarah", 78, 85, 92],
     ["David", 91, 88, 85],
     ["George", 99, 99, 99]
 ]
 
-t.printTable
+t.show
 ```
 
 ![screenshot](screenshot.png)
 
 
-All rows must be of the same size. 
+All rows must be of the same size.
 
-## TODO 
+## TODO
 
 * add configuribility
 
 ## Inspiration
 
 This all came about when I
-wanted to print something similar 
-to `sqlite .mode box` in this 
+wanted to print something similar
+to `sqlite .mode box` in this
 [project](https://github.com/MrBocch/Time-Tracker)

@@ -1,36 +1,37 @@
 
 class Table
-  attr_accessor :header, :data
+  attr_accessor :header, :rows
   # should add checks
-  # so taht every row is of the same size 
+  # so taht every row is of the same size
 
-  def initialize header 
+  def initialize header
     @header = header
+    @rows = []
   end
 
-  def printTable
-    # i should probably check for things 
-    #if @data.empty?
-    #  raise "Where is the data?"§
+  def show
+    # i should probably check for things
+    #if @rows.empty?
+    #  raise "Where is the rows?"§
     #end
     sdata = [@header.clone]
     sdata += self.datato_s
     # does everything have to be turned into a string?
-    # i think so 
+    # i think so
 
     # get longest item in a column
     rpad = []
     nrows = sdata[0].length
     # the issue was, i was going for how many rows, should of gone by rows
     # this is really confussing
-    # idk why it really works 
+    # idk why it really works
     0.upto(nrows -1).each do |i|
       #p sdata[i]
       rpad << sdata.max{|a, b| a[i].length <=> b[i].length}[i].length() +1
     end
- 
+
     floor = '─'
-    wall = '│' 
+    wall = '│'
     tsign  = {:ut => '┴', :dt => '┬', :rt => '├', :lt => '┤', :cross => '┼'}
     corner = {:tr => '┌', :tl => '┐', :br => '┘', :bl => '└'}
 
@@ -55,10 +56,10 @@ class Table
     mid[-1] = tsign[:lt]
     bot[-1] = corner[:br]
 
-    puts top 
+    puts top
     puts head
     puts mid
-    # we can start printing table 
+    # we can start printing table
     sdata[1..-1].each do |l|
       (0...l.length()).each do |i|
         print("#{wall} #{l[i].ljust(rpad[i])}")
@@ -67,7 +68,7 @@ class Table
       puts ""
     end
 
-    puts bot 
+    puts bot
   end
 
   # is this a bad idea
@@ -75,9 +76,12 @@ class Table
   private
   def datato_s
     stringify = []
-    @data.each do |row|
-      stringify << row.map {|e| e.to_s}
+    if not rows.empty?
+      @rows.each do |row|
+        stringify << row.map {|e| e.to_s}
+      end
     end
+
     stringify
   end
 end
