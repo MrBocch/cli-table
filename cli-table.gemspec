@@ -1,4 +1,4 @@
-
+# https://guides.rubygems.org/make-your-own-gem/
 Gem::Specification.new do |s|
     s.name     = "cli-table"
     s.version  = "0.1.0"
