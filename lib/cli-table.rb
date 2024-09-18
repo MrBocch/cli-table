@@ -1,8 +1,6 @@
 
 class Table
   attr_accessor :header, :rows
-  # should add checks
-  # so taht every row is of the same size
 
   def initialize header
     @header = header

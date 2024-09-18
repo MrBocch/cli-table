@@ -1,7 +1,7 @@
 # https://guides.rubygems.org/make-your-own-gem/
 Gem::Specification.new do |s|
     s.name     = "cli-table"
-    s.version  = "0.1.0"
+    s.version  = "0.2.0"
     s.summary  = "Print 2d array into a pretty table. https://github.com/MrBocch/cli-table"
     s.authors  = ["MrBocch"]
     s.email    = "jorgealberto1436@gmail.com"
