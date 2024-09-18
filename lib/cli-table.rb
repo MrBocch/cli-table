@@ -12,7 +12,7 @@ class Table
   def show
 
     # wish i could explain what line of code its wrong
-    if not is_correct? then return end
+    if not is_correct then return end
 
     sdata = [@header.clone]
     sdata += self.datato_s
@@ -72,21 +72,16 @@ class Table
   end
 
   def is_correct?
-
     if @rows == []
       return true
     end
 
     t = @rows.map {|l| l.length}.uniq
     if t.length != 1
-      explain_error "Cant print table because rows are different size"
-      puts caller[1..2]
       return false
     end
 
     if t[0] != @header.length
-      explain_error "Cant print because rows size is different from header size"
-      puts caller[1..2]
       return false
     end
 
@@ -109,5 +104,27 @@ class Table
   private
   def explain_error why
     puts "\n  [cli-table]: #{why}"
+  end
+  private
+  def is_correct
+
+    if @rows == []
+      return true
+    end
+
+    t = @rows.map {|l| l.length}.uniq
+    if t.length != 1
+      explain_error "Cant print table because rows are different size"
+      puts caller[1..2]
+      return false
+    end
+
+    if t[0] != @header.length
+      explain_error "Cant print because rows size is different from header size"
+      puts caller[1..2]
+      return false
+    end
+
+    return true
   end
 end

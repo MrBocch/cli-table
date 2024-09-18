@@ -69,7 +69,7 @@ def test8
   a.rows << ["jhonny"]
   a.rows << ["poopy"]
 
-  a.show
+  p a.is_correct?
 end
 
 puts "Test 1 (Table with all strings)"
