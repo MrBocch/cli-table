@@ -26,7 +26,6 @@ end
 
 def test3
   a = Table.new(["", "Math", "Science", "History"])
-  p a.rows
   a.show
 end
 
@@ -34,6 +33,41 @@ end
 def test4
   a = Table.new(["", "Math", "Science", "History"])
   a.rows << ["jhonny", 80, 80, 80]
+
+  a.show
+end
+
+def test5
+  # raise error, that explains rows are different sizes
+  a = Table.new(["", "Math", "Science", "History"])
+  a.rows << ["jhonny", 1, 2, 3]
+  a.rows << ["poop", 1, 2]
+
+  a.show
+end
+
+def test6
+  # raise error, that explains that its wrong size
+  a = Table.new(["", "Math", "Science", "History"])
+  a.rows << ["jhonny"]
+  a.rows << ["poopy"]
+
+  a.show
+end
+
+def test7
+  # is row correct
+  a = Table.new(["", "Math", "Science", "History"])
+  a.rows << ["jhonny", 1, 2, 3]
+
+  p a.is_correct?
+end
+
+def test8
+  # raise error, that explains that its wrong size
+  a = Table.new(["", "Math", "Science", "History"])
+  a.rows << ["jhonny"]
+  a.rows << ["poopy"]
 
   a.show
 end
@@ -49,3 +83,15 @@ test3
 
 puts "Test 4 (Append to rows)"
 test4
+
+puts "Test 5 (Different size rows)"
+test5
+
+puts "Test 6 (Rows not equal to Header size)"
+test6
+
+puts "Test 7 (Calling is_correct? method, when correct)"
+test7
+
+puts "Test 8 (Calling is_correct? method, when incorrect)"
+test8
