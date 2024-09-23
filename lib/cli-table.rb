@@ -70,6 +70,11 @@ class Table
   end
 
   def is_correct?
+
+    if @header == []
+      return false
+    end
+
     if @rows == []
       return true
     end
@@ -99,12 +104,20 @@ class Table
 
     stringify
   end
+
   private
   def explain_error why
     puts "\n  [cli-table]: #{why}"
   end
+
   private
   def is_correct
+
+    if @header == []
+      explain_error "Empty header"
+      puts caller[1..2]
+      return false
+    end
 
     if @rows == []
       return true
