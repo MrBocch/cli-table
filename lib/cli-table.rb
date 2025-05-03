@@ -1,4 +1,3 @@
-
 class Table
   attr_accessor :header, :rows
 

@@ -30,6 +30,7 @@ All rows must be of the same size.
 
 ## TODO
 
+* maybe #show() should print it out but .to_s() returns a string,
 * add configuribility
 
 ## Inspiration
